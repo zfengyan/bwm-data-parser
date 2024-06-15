@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "async-mqtt": "2.6.3",
+    "mqtt": "4.3.7",
+    "nuxt": "^3.12.1",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/eslint-parser": "^7.17.0",
+    "@mdi/js": "^6.5.95",
+    "@nuxt/types": "^2.15.8",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/eslint-config": "^9.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/i18n": "^7.2.0",
+    "@nuxtjs/vuetify": "^1.12.3",
+    "@vuejs-community/vue-filter-date-format": "^1.6.3",
+    "@vuejs-community/vue-filter-date-parse": "^1.1.6",
+    "eslint": "8.22.0",
+    "eslint-plugin-nuxt": "^3.2.0",
+    "vite-plugin-vuetify": "^2.0.3",
+    "vuetify": "^3.6.9"
+  }
+}
