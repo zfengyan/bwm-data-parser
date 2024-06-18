@@ -33,62 +33,85 @@
           <!-- https://vuetifyjs.com/en/components/steppers/ -->
           <v-stepper :items="['Check Connection', 'Check Database', 'Import Data', 'Ready']">
             <template v-slot:item.1>
-              <v-card title="Check Connection" flat>...</v-card>
+              <v-card title="Check Connection" flat></v-card>
             </template>
 
             <template v-slot:item.2>
-              <v-card title="Check Database" flat>...</v-card>
+              <v-card title="Check Database" flat></v-card>
             </template>
 
             <template v-slot:item.3>
-              <v-card title="Import Data" flat>...</v-card>
+              <v-card title="Import Data" flat></v-card>
             </template>
 
             <template v-slot:item.4>
-              <v-card title="Ready" flat>...</v-card>
+              <v-card title="Ready" flat></v-card>
             </template>
           </v-stepper>
 
 
-          <!-- v-stepper-items: Primary Component -->
+          <!-- v-stepper-item: Primary Component -->
           <!-- https://vuetifyjs.com/en/components/steppers/#api -->
           <v-stepper v-model="step">
-            <v-stepper-header>
-              <v-stepper-item :complete="step > 1" step="1">
-                Check Connection
-              </v-stepper-item>
-            </v-stepper-header>
 
-            <v-stepper-window v-model:step="step">
-              <v-stepper-window-item step="1">
-                <v-card>
-                  <v-card-text>
-                    The first step is to check the connection to the SensorThings API. The service should appear
-                    in Docker as 'bwm-sta'.
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-progress-circular class="mr-5 ml-2" :size="35" :color="loading ? 'secondary' : 'accent'"
-                      :indeterminate="loading">
-                      <v-icon v-if="success === true" :size="28" color="secondary">
-                        {{ mdiCheck }}
-                      </v-icon>
-                      <v-icon v-if="error === true && success === false" :size="20" color="warning">
-                        {{ mdiAlert }}
-                      </v-icon>
-                    </v-progress-circular>
-                    <v-btn v-show="!loading && success === false" class="mr-2" color="secondary"
-                      @click="checkConnection">
-                      {{ error ? 'Try again' : 'Check connection now' }}
-                    </v-btn>
-                    <span v-show="loading && success === false && error === false">One moment please...</span>
-                    <span v-show="!loading && success === true">The connection works!</span>
-                    <span v-show="!loading && error === true && success === false">An error has occurred: {{ text ? text
-                      : '' }}</span>
-                  </v-card-actions>
-                </v-card>
-              </v-stepper-window-item>
-            </v-stepper-window>
-            
+            <!-- step 1: check the connection to the SensorThings API. -->
+            <v-stepper-item :complete="step > 1" step="1">
+              <v-card>
+                <v-card-text>
+                  The first step is to check the connection to the SensorThings API. The service should appear
+                  in Docker as 'bwm-sta'.
+                </v-card-text>
+                <v-card-actions>
+                  <v-progress-circular class="mr-5 ml-2" :size="35" :color="loading ? 'secondary' : 'accent'"
+                    :indeterminate="loading">
+                    <v-icon v-if="success === true" :size="28" color="secondary">
+                      {{ mdiCheck }}
+                    </v-icon>
+                    <v-icon v-if="error === true && success === false" :size="20" color="warning">
+                      {{ mdiAlert }}
+                    </v-icon>
+                  </v-progress-circular>
+                  <v-btn v-show="!loading && success === false" class="mr-2" color="secondary" @click="checkConnection">
+                    {{ error ? 'Try again' : 'Check connection now' }}
+                  </v-btn>
+                  <span v-show="loading && success === false && error === false">One moment please...</span>
+                  <span v-show="!loading && success === true">The connection works!</span>
+                  <span v-show="!loading && error === true && success === false">An error has occurred: {{ text ? text
+                  : '' }}</span>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-item>
+
+
+
+            <v-stepper-item :complete="step > 2" step="2">
+              <v-card>
+                <v-card-text>
+                  The first step is to check the connection to the SensorThings API. The service should appear
+                  in Docker as 'bwm-sta'.
+                </v-card-text>
+                <v-card-actions>
+                  <v-progress-circular class="mr-5 ml-2" :size="35" :color="loading ? 'secondary' : 'accent'"
+                    :indeterminate="loading">
+                    <v-icon v-if="success === true" :size="28" color="secondary">
+                      {{ mdiCheck }}
+                    </v-icon>
+                    <v-icon v-if="error === true && success === false" :size="20" color="warning">
+                      {{ mdiAlert }}
+                    </v-icon>
+                  </v-progress-circular>
+                  <v-btn v-show="!loading && success === false" class="mr-2" color="secondary" @click="checkConnection">
+                    {{ error ? 'Try again' : 'Check connection now' }}
+                  </v-btn>
+                  <span v-show="loading && success === false && error === false">One moment please...</span>
+                  <span v-show="!loading && success === true">The connection works!</span>
+                  <span v-show="!loading && error === true && success === false">An error has occurred: {{ text ? text
+                    : '' }}</span>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-item>
+
+
 
 
 
@@ -123,8 +146,8 @@ export default{
       staDocUrl: 'https://fraunhoferiosb.github.io/FROST-Server/',
       step: 1,
       loading: false,
-      success: false,
-      error: true,
+      success: true,
+      error: false,
       test: ""
 
     }
